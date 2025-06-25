@@ -2,4 +2,4 @@
 Simple calendar created with HTML, CSS and JavaScript
 
 # Screenshot
-![calendar gif](img/calendar.gif)
+<img src="img/calendar.gif" alt="" style="width: 300px">
