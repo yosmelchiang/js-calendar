@@ -2,14 +2,17 @@
 const log = console.log
 // 
 
+// DOM elements
 const display = document.querySelector(".display");
 const previous = document.querySelector(".left");
 const next = document.querySelector(".right");
 const days = document.querySelector(".days");
 const selected = document.querySelector(".selected");
 
+
+// Date variables
 let date = new Date();
-const year = date.getFullYear();
+let year = date.getFullYear();
 let month = date.getMonth();
 
 // Norwegian date formatting
@@ -62,6 +65,7 @@ function displayCalendar() {
     }
 };
 
+// Updated the display div with a selected date
 function displaySelected() {
     const dayEles = document.querySelectorAll('.days div');
     dayEles.forEach(day => {
@@ -70,8 +74,9 @@ function displaySelected() {
             selected.innerHTML = `Selected Date: ${selectedDate}`
         })
     })
-}
+};
 
+// Add functionality to previus button
 previous.addEventListener('click', () => {
     days.innerHTML = '';
     selected.innerHTML = '';
@@ -88,6 +93,7 @@ previous.addEventListener('click', () => {
     displaySelected();
 });
 
+// Add functionality to next button
 next.addEventListener("click", () => {
     days.innerHTML = "";
     selected.innerHTML = "";
