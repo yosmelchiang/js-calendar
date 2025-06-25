@@ -2,6 +2,21 @@
 const log = console.log
 // 
 
+const workouts = [
+  {
+    date: new Date(2025, 6 - 1, 27).toDateString(), // Juni 27, 2025
+    workout: "Strength Lower body: Squats, Lunges, Calf Raises"
+  },
+  {
+    date: new Date(2025, 6 - 1, 29).toDateString(), // Juni 29, 2025
+    workout: "Endurance: 5km run + 15min jump rope"
+  },
+  {
+    date: new Date(2025, 7 - 1, 1).toDateString(), // Juli 1, 2025
+    workout: "Strength Upper body: Pushups, Pullups, Plank"
+  }
+];
+
 // DOM elements
 const display = document.querySelector(".display");
 const previous = document.querySelector(".left");
@@ -55,7 +70,10 @@ function displayCalendar() {
 
         div.dataset.date = currentDateString
 
-        div.innerHTML += i;
+        // Add workout indicator if exists
+        const workoutExists = workouts.some(w => w.date === currentDateString);
+
+        div.innerHTML = workoutExists ? `${i} •` : `${i}`;
 
         if (currentDateString === today) {
             div.classList.add("current-date")
@@ -71,7 +89,21 @@ function displaySelected() {
     dayEles.forEach(day => {
         day.addEventListener('click', e => {
             const selectedDate = e.target.dataset.date;
-            selected.innerHTML = `Selected Date: ${selectedDate}`
+            
+            // Find the workout for this date
+            const workoutEntry = workouts.find(w => w.date === selectedDate);
+
+            // Build display string
+            let displayText = `<strong>Selected Date:</strong> ${selectedDate}`;
+            
+            if (workoutEntry) {
+                displayText += `<br><br><strong>Workout:</strong> ${workoutEntry.workout}`;
+            } else {
+                displayText += `<br><br><em>No workout for this day</em>`;
+            }
+
+            selected.innerHTML = displayText;
+            // selected.innerHTML = `Selected Date: ${selectedDate}`
         })
     })
 };
