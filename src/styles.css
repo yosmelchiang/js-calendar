@@ -6,7 +6,7 @@
     --accent-2: #ebedf0;
 }
 
-/* Body styling */
+/* Body */
 body {
     /* Reset */
     box-sizing: border-box;
@@ -22,7 +22,7 @@ body {
     height: 100vh;
 }
 
-/* Container styling */
+/* Calendar container */
 .container {
     display: inline-block;
     background-color: var(--white);
@@ -31,10 +31,70 @@ body {
     margin-top: 2em;
 }
 
+/* Header container */
 header {
     margin: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+}
+
+/* Header text */
+.header-display {
+    color: var(--accent);
+    margin: 5px;
+    font-size: 1.2rem;
+    word-spacing: 0.5rem;
+}
+
+/* Header Arrows */
+pre {
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+/* Week, Days Container */
+.days, .week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin: auto;
+    padding: 0 20px;
+    justify-content: space-between;
+}
+
+/* Individual divs styling wth flex*/
+.week div, .days div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3em;
+    border-radius: 100%;
+}
+
+.week div {
+    opacity: 0.5;
+}
+
+.days div:hover {
+    background: var(--accent-2);
+    color: rgb(25, 25, 201);
+    cursor: pointer;
+}
+
+/* Highlights the current date */
+.current-date {
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+/* Shows the date that is selected */
+.display-selected {
+    margin-bottom: 10px;
+    padding: 20px 20px;
+    text-align: center;
 }
