@@ -1,0 +1,40 @@
+/* Color Variables */
+:root {
+    --white: #fff;
+    --main: #eaedf0;
+    --accent: #0041ff;
+    --accent-2: #ebedf0;
+}
+
+/* Body styling */
+body {
+    /* Reset */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: 1;
+
+    /* Styles */
+    background-color: var(--main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Container styling */
+.container {
+    display: inline-block;
+    background-color: var(--white);
+    border-radius: 35px;
+    padding: 0 1em;
+    margin-top: 2em;
+}
+
+header {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
